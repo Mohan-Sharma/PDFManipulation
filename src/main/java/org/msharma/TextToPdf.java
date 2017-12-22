@@ -1,20 +1,16 @@
-package org.nthdimenzion;
+package org.msharma;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -23,12 +19,15 @@ import java.util.Scanner;
  */
 public class TextToPdf
 {
+
+    public static final String GENERATED_PDF_FILE_NAME = "/output.pdf";
+
     public static void main(String arr[])
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please provide the absolute path of the source file");
         String sourceFile = scanner.nextLine();
-        System.out.println("Please provide the absolute path of the target file");
+        System.out.println("Please provide the absolute path of the target folder");
         String targetFile = scanner.nextLine();
         TextToPdf textToPdf = new TextToPdf();
         textToPdf.createPDFFromTextFile(sourceFile, targetFile);
@@ -43,7 +42,7 @@ public class TextToPdf
     {
         try(
                 FileReader reader = new FileReader(srcFile);
-                FileOutputStream writer = new FileOutputStream(descFile + "/output.pdf")
+                FileOutputStream writer = new FileOutputStream(descFile + GENERATED_PDF_FILE_NAME)
         )
         {
             Document document = new Document();
