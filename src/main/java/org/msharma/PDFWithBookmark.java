@@ -78,7 +78,7 @@ public class PDFWithBookmark
     }
 
     /**
-     * This class is used to create bookmark definitions.
+     * This class is used to create bookmark definitions to be used.
      */
     class Bookmark
     {
