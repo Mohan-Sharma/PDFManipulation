@@ -65,7 +65,7 @@ public class PDFWithBookmark
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("Title", bookmark.getBookmarkTitle());
                 map.put("Action", "GoTo");
-                map.put("Page", String.format("%d XYZ 0 10000 1", bookmark.getPageNumber()));
+                map.put("Page", String.format("%d", bookmark.getPageNumber()));
                 outlines.add(map);
             });
 
